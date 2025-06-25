@@ -69,7 +69,7 @@
             z-index: 100;
             box-shadow: var(--shadow-lg);
             backdrop-filter: blur(10px);
-            height: 235.6px;
+            height: 280px;
             display: flex;
             align-items: center;
             transition: height 0.4s ease, padding 0.4s ease;
@@ -83,16 +83,17 @@
             align-items: center;
             width: 100%;
             position: relative;
+            padding: 1rem 2rem;
         }
 
         .header-top {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             width: 100%;
-            padding: 0 2rem;
             position: absolute;
             top: 20px;
+            z-index: 101;
         }
 
         .header-content {
@@ -100,34 +101,35 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 80px;
+            margin-top: 140px;
+            z-index: 100;
+            width: 100%;
         }
 
         .header-content h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--white);
+            color: black;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            transition: font-size 0.4s ease, transform 0.4s ease, color 0.4s ease;
+            text-shadow: none;
+            transition: font-size 0.4s ease, transform 0.4s ease;
             position: relative;
-            z-index: 10;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            z-index: 102;
         }
 
         [data-theme="dark"] .header-content h1 {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: black;
         }
 
         header.collapsed .header-content h1 {
-            font-size: 1.5rem !important;
-            transform: translateY(-10px);
+            font-size: 2rem !important;
+            transform: translateY(-100px);
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 100%;
+            text-align: center;
         }
 
         .header-content p {
@@ -144,6 +146,7 @@
             gap: 0.5rem;
             transition: opacity 0.4s ease, transform 0.4s ease;
             margin-bottom: 1rem;
+            z-index: 103;
         }
 
         nav a {
@@ -188,6 +191,10 @@
             gap: 0.75rem;
             align-items: center;
             transition: opacity 0.4s ease, transform 0.4s ease;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+            z-index: 102;
         }
 
         .contact-item {
@@ -396,7 +403,7 @@
         }
 
         .theme-toggle {
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 30px;
             background: var(--white);
@@ -649,16 +656,17 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 0%;
-            height: 3px;
+            width: 3px;
+            height: 0%;
             background: var(--gradient-primary);
             z-index: 1001;
-            transition: width 0.3s ease;
+            transition: height 0.3s ease;
+            opacity: 0.7;
         }
 
         @media (max-width: 767px) {
             header {
-                height: 205.6px;
+                height: 245.6px;
                 padding: 1rem;
             }
 
@@ -675,20 +683,22 @@
             }
 
             .header-content {
-                margin-top: 90px;
+                margin-top: 120px;
             }
 
             .header-content h1 {
                 font-size: 3rem;
-                background: var(--gradient-primary);
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
+                color: black;
             }
 
             header.collapsed .header-content h1 {
-                font-size: 1.2rem !important;
-                transform: translateY(-5px);
+                font-size: 1.5rem !important;
+                transform: translate(-50%, 0);
+                top: 5px;
+                left: 50%;
+                position: fixed;
+                width: 100%;
+                text-align: center;
             }
 
             .header-content p {
@@ -743,6 +753,10 @@
 
             .scroll-top {
                 bottom: 80px;
+            }
+
+            .progress-bar {
+                width: 2px;
             }
         }
 
@@ -858,525 +872,530 @@
             <div class="section-content">
                 <div class="card">
                     <h3 class="card-title">BTech Engineering</h3>
-                <div class="card-subtitle">SRM University | 2022 - 2026 | Expected GPA: 7.7</div>
-                <div class="card-content">
-                    <p><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Web Development, Database Systems, Software Engineering, Machine Learning, Solidity, Rust, IoE Sensors and Devices</p>
-                    <p><strong>Honors:</strong> Published an innovative research paper on behalf of the University.</p>
+                    <div class="card-subtitle">SRM University | 2022 - 2026 | Expected GPA: 7.7</div>
+                    <div class="card-content">
+                        <p><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Web Development, Database Systems, Software Engineering, Machine Learning, Solidity, Rust, IoE Sensors and Devices</p>
+                        <p><strong>Honors:</strong> Published an innovative research paper on behalf of the University.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Kishinchand Chellaram College</h3>
+                    <div class="card-subtitle">HSC Board, Mumbai | 2020 - 2022</div>
+                    <div class="card-content">
+                        <p><strong>Relevant Coursework:</strong> Physics, Chemistry, Math, Electrical Maintenance, English, French, IT</p>
+                        <p><strong>Honors:</strong> Spearheaded fashion shows and various cultural and social events, gathering sponsorship deals by various MNC</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Gopi Birla Memorial School</h3>
+                    <div class="card-subtitle">CBSE, Mumbai | Up to 2020</div>
+                    <div class="card-content">
+                        <p><strong>Honors:</strong> Achieved top 5 in the 10th std for Science subject.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="card-title">Kishinchand Chellaram College</h3>
-                <div class="card-subtitle">HSC Board, Mumbai | 2020 - 2022</div>
-                <div class="card-content">
-                    <p><strong>Relevant Coursework:</strong> Physics, Chemistry, Math, Electrical Maintenance, English, French, IT</p>
-                    <p><strong>Honors:</strong> Spearheaded fashion shows and various cultural and social events, gathering sponsorship deals by various MNC</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Gopi Birla Memorial School</h3>
-                <div class="card-subtitle">CBSE, Mumbai | Up to 2020</div>
-                <div class="card-content">
-                    <p><strong>Honors:</strong> Achieved top 5 in the 10th std for Science subject.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="extracurricular">
-        <div class="section-header">
-            <h2><i class="fas fa-star"></i> Extracurricular Activities</h2>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <h3 class="card-title">Financial Manager, Entrepreneurship Cell</h3>
-                <div class="card-subtitle">SRM University | 2023 - Present</div>
-                <div class="card-content">
-                    <p>Managed budgets for startup events, increasing funding by 20%.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">IT Member, Placement Cell</h3>
-                <div class="card-subtitle">SRM University | 2023 - Present</div>
-                <div class="card-content">
-                    <p>Developed tools to streamline placement processes and data management.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Volunteer, Basti ki Pathshala NGO</h3>
-                <div class="card-subtitle">Basti ki Pathshala | May 2023 - September 2023</div>
-                <div class="card-content">
-                    <p>Taught coding to underprivileged children, impacting 30+ students.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Solana Ambassador, SRM University</h3>
-                <div class="card-subtitle">Solana | 2022 - Present</div>
-                <div class="card-content">
-                    <p>Promoted blockchain adoption through workshops and events.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Active Participant in Hackathons</h3>
-                <div class="card-subtitle">Various | 2022 - Present</div>
-                <div class="card-content">
-                    <p>Competed in various hackathons, providing valuable insights to the team, and spearheading innovative solutions.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Organized Social and Cultural Events</h3>
-                <div class="card-subtitle">SRM University | 2022 - Present</div>
-                <div class="card-content">
-                    <p>Led planning for cultural festivals, engaging 500+ attendees.</p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Internship Trainee, SD Wealth Solutions</h3>
-                <div class="card-subtitle">SD Wealth Solutions | February 2024 - May 2024</div>
-                <div class="card-content">
-                    <p>Analyzed financial data to support investment strategies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work">
-        <div class="section-header">
-            <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+        <section id="extracurricular">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Extracurricular Activities</h2>
             </div>
             <div class="section-content">
-            <div class="card">
-                <h3 class="card-title">Software Engineering Intern</h3>
-                <div class="card-subtitle">TechCorp | Summer 2023</div>
-                <div class="card-content">
-                    <p>Developed a RESTful API with Node.js, improving data retrieval by 25%. Collaborated on a CRM system for 5,000+ users.</p>
-                    <div class="skills-container">
-                        <span class="skill"tag">Node.js</span>
-                        <span class="skill"tag">Express</span>
-                        <span class="skill"tag">MongoDB</span>
-                        <span class="tag">APIs</span>
+                <div class="card">
+                    <h3 class="card-title">Financial Manager, Entrepreneurship Cell</h3>
+                    <div class="card-subtitle">SRM University | 2023 - Present</div>
+                    <div class="card-content">
+                        <p>Managed budgets for startup events, increasing funding by 20%.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">IT Member, Placement Cell</h3>
+                    <div class="card-subtitle">SRM University | 2023 - Present</div>
+                    <div class="card-content">
+                        <p>Developed tools to streamline placement processes and data management.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Volunteer, Basti ki Pathshala NGO</h3>
+                    <div class="card-subtitle">Basti ki Pathshala | May 2023 - September 2023</div>
+                    <div class="card-content">
+                        <p>Taught coding to underprivileged children, impacting 30+ students.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Solana Ambassador, SRM University</h3>
+                    <div class="card-subtitle">Solana | 2022 - Present</div>
+                    <div class="card-content">
+                        <p>Promoted blockchain adoption through workshops and events.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Active Participant in Hackathons</h3>
+                    <div class="card-subtitle">Various | 2022 - Present</div>
+                    <div class="card-content">
+                        <p>Competed in various hackathons, providing valuable insights to the team, and spearheading innovative solutions.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Organized Social and Cultural Events</h3>
+                    <div class="card-subtitle">SRM University | 2022 - Present</div>
+                    <div class="card-content">
+                        <p>Led planning for cultural events, engaging 500+ attendees.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Internship Trainee, SD Wealth Solutions</h3>
+                    <div class="card-subtitle">SD Wealth Solutions | February 2024 - May 2024</div>
+                    <div class="card-content">
+                        <p>Analyzed financial data to support investment strategies.</p>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="card-title">Blockchain Developer Intern</h3>
-                <div class="card-subtitle">TechStartup | Summer 2024</div>
-                <div class="card-content">
-                    <p>Developed smart contracts for decentralized applications on Ethereum.</p>
-                    <p>Enhanced transaction security using blockchain protocols.</p>
-                    <p><a href="https://drive.google.com/file/d/1qnpKn5dr74SZKBbE2GLKnigtA2L3CQ/view?usp=sharing">Verify</a></p>
-                    <div class="skills-container">
-                        <span class="skill-tag">Blockchain</span>
-                        <span class="skill-tag">Ethereum</span>
-                        <span class="skill-tag">Solidity</span>
-                        <span class="skill-tag">JavaScript</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="projects">
-        <div class="section-header">
-            <h2><i class="fas fa-code"></i> Projects</h2>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <h3 class="card-title">E-Commerce Website</h3>
-                <div class="card-subtitle">React, Node.js, MongoDB | 2022</div>
-                <div class="card-content">
-                    <p>Developed a full-stack e-commerce platform with user authentication and payment integration.</p>
-                    <p><a href="https://github.com/janedoe/ecommerce">GitHub</a></p>
-                    <div class="skills-container">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Stripe</span>
-                    </div>
-                </div>
+        <section id="work">
+            <div class="section-header">
+                <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
             </div>
-            <div class="card">
-                <h3 class="card-title">Task Manager AI</h3>
-                <div class="card-subtitle">Python, TensorFlow | 2023</div>
-                <div class="card-content">
-                    <p>Built an AI-driven task manager that predicts task completion times with 85% accuracy.</p>
-                    <div class="skills-container">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Flask</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">AI Chatbot</h3>
-                <div class="card-subtitle">Python, NLP | 2024</div>
-                <div class="card-content">
-                    <p>Built a chatbot using NLP for customer support.</p>
-                    <p><a href="https://github.com/janedoe/shahbot">ShahBot</a></p>
-                    <div class="skills-container">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Flask</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="certificates">
-        <div class="section-header">
-            <h2><i class="fas fa-certificate"></i> Certifications</h2>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <h3 class="card-title">AWS Certified Developer</h3>
-                <div class="card-subtitle">AWS | 2023</div>
-                <div class="card-content">
-                    <p>Certified in developing and deploying on AWS applications.</p>
-                    <p><a href="https://aws.amazon.com/verification">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Blockchain Developer</h3>
-                <div class="card-subtitle">Coursera | 2023</div>
-                <div class="card-content">
-                    <p>Mastered blockchain technology and smart contract programming.</p>
-                    <p><a href="https://drive.google.com/file/d/1qnpKn5dr74zzKBbE2GLKnigtA2L3CQ/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Full Stack Web Development</h3>
-                <div class="card-subtitle">Udemy | 2023</div>
-                <div class="card-content">
-                    <p>Developed end-to-end web applications using the MERN stack.</p>
-                    <p><a href="https://drive.google.com/file/d/1JqsXK6dcwUriRuVDygcyNe-jotkIGlRt/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Machine Learning Professional</h3>
-                <div class="card-subtitle">Coursera | 2023</div>
-                <div class="card-content">
-                    <p>Trained machine learning models using TensorFlow for predictive analytics.</p>
-                    <p><a href="https://drive.google.com/file/d/1hduX0rdKK184xlGrcK9MxpiMn8aGfTg4/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Cybersecurity Essentials</h3>
-                <div class="card-subtitle">Cisco | 2023</div>
-                <div class="card-content">
-                    <p>Mastered core cybersecurity principles and threat mitigation strategies.</p>
-                    <p><a href="https://drive.google.com/file/d/18D26ZSzGuytPbEoxGLvwYPpKYiQDujTwO/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Data Science with Python</h3>
-                <div class="card-subtitle">DataCamp | 2023</div>
-                <div class="card-content">
-                    <p>Performed data analysis using Python libraries like Pandas and NumPy.</p>
-                    <p><a href="https://drive.google.com/file/d/1lClolx3zyK_-DmrtKJ9eRgZYZU5ch7GL/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Cloud Architect</h3>
-                <div class="card-subtitle">Google Cloud | 2024</div>
-                <div class="card-content">
-                    <p>Designed scalable cloud architectures on Google Cloud Platform.</p>
-                    <p><a href="https://drive.google.com/file/d/1kw7Q5nFI37vd0id3G23Oppc5zVTI4B3A/view?usp=sharing">Verify credentials</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="research">
-        <div class="section-header">
-            <h2><i class="fas fa-flask"></i> Research</h2>
-        </div>
-        <div class="section-content">
-            <div class="card">
-                <h3 class="card-title">The application of blockchain as a distributed ledger and smart contract for property registration</h3>
-                <div class="card-subtitle">IEEE | 2021</div>
-                <div class="card-content">
-                    <p>Explored blockchain technology for secure property registration.</p>
-                    <p><a href="https://ieeexplore.ieee.org/abstract/document/9687997">Read research</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">How the Current World is Outdated</h3>
-                <div class="card-subtitle">ACM | 2023</div>
-                <div class="card-content">
-                    <p>Analyzed technological obsolescence in modern systems.</p>
-                    <p><a href="https://medium.com/@shah.jash101/shah-world-shah-05a982ead433e">Read article</a></p>
-                </div>
-            </div>
-            <div class="card">
-                <h3 class="card-title">Leveraging the Bitcoin Lightning Network for Tax-Free Fund Transfers in India</h3>
-                <div class="card-subtitle">IJCRT | June 2024</div>
-                <div class="card-content">
-                    <p>Investigated the Bitcoin Lightning Network for secure fund transfers in India.</p>
-                    <p><a href="https://ijcrt.org/viewfull.php?&p_id=IJCRT2506859">Read research</a> | <a href="https://drive.google.com/file/d/1L6JQNdEb2ay3DtmNihUEB6ncDLHGC7_O/view?usp=sharing">View Certificate</a> | <a href="https://drive.google.com/file/d/14Ja333z6OihviHHIthIJwfIkuYXei2pI/view?usp=sharing">Confirmation Letter</a></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-me">
-        <div class="section-header">
-            <h2><i class="fas fa-envelope"></i> Contact Me</h2>
-        </div>
-        <div class="section-content">
-            <div class="contact-form-container">
-                <div class="contact-form">
-                    <h3>Contact Form</h3>
-                    <form action="" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required aria-label="Name">
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title">Software Engineering Intern</h3>
+                    <div class="card-subtitle">TechCorp | Summer 2023</div>
+                    <div class="card-content">
+                        <p>Developed a RESTful API with Node.js, improving data retrieval by 25%. Collaborated on a CRM system for 5,000+ users.</p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">APIs</span>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required aria-label="Email">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required aria-label="Message"></textarea>
-                        </div>
-                        <button type="submit" class="send-btn" aria-label="Send Message">Send</button>
-                    </form>
+                    </div>
                 </div>
-                <div class="connect-info">
-                    <h3>Connect</h3>
-                    <p>Interested in collaboration? Reach out!</p>
-                    <div class="contact-links">
-                        <a href="mailto:shah.jash101@gmail.com" class="contact-link" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                            <span>shah.jash101@gmail.com</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/jash-shah-744518361" class="contact-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                            <span>linkedin.com/in/jash-shah</span>
-                        </a>
-                        <a href="https://github.com/Jashah3" class="contact-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                            <span>github.com/Jashah3</span>
-                        </a>
-                        <a href="https://scholar.google.com/citations?user=WCiv9WwAAAAJ" class="contact-link" aria-label="Google Scholar">
-                            <i class="fas fa-book"></i>
-                            <span>scholar.google.com/citations</span>
-                        </a>
-                        <a href="https://x.com/JashShah0" class="contact-link" aria-label="X">
-                            <i class="fab fa-twitter"></i>
-                            <span>x.com/JashShah0</span>
-                        </a>
+                <div class="card">
+                    <h3 class="card-title">Blockchain Developer Intern</h3>
+                    <div class="card-subtitle">TechStartup | Summer 2024</div>
+                    <div class="card-content">
+                        <p>Developed smart contracts for decentralized applications on Ethereum.</p>
+                        <p>Enhanced transaction security using blockchain protocols.</p>
+                        <p><a href="https://drive.google.com/file/d/1qnpKn5dr74SZKBbE2GLKnigtA2L3CQ/view?usp=sharing">Verify</a></p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Blockchain</span>
+                            <span class="skill-tag">Ethereum</span>
+                            <span class="skill-tag">Solidity</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
 
-<footer>
-    <div class="footer-links">
-        <div class="footer-section">
-            <h4>Credentials</h4>
-            <p>CSE Engineering Student at SRM University, always eager to learn more and open to all opportunities.</p>
-        </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certificates">Certifications</a></li>
-                <li><a href="#contact-me">Contact</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Contact</h4>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:shah.jash101@gmail.com">shah.jash101@gmail.com</a></p>
-            <p><i class="fas fa-phone"></i> +91 9819731375</p>
-            <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
-        </div>
-        <div class="footer-section">
-            <h4>Social</h4>
-            <div class="social-icons">
-                <a href="https://github.com/Jashah3" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/jash-shah-744518361" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://scholar.google.com/citations?user=WCiv9WwAAAAJ" class="social-icon" aria-label="Google Scholar"><i class="fas fa-book"></i></a>
-                <a href="https://x.com/JashShah0" class="social-icon" aria-label="X"><i class="fab fa-twitter"></i></a>
+        <section id="projects">
+            <div class="section-header">
+                <h2><i class="fas fa-code"></i> Projects</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title">E-Commerce Website</h3>
+                    <div class="card-subtitle">React, Node.js, MongoDB | 2022</div>
+                    <div class="card-content">
+                        <p>Developed a full-stack e-commerce platform with user authentication and payment integration.</p>
+                        <p><a href="https://github.com/janedoe/ecommerce">GitHub</a></p>
+                        <div class="skills-container">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Task Manager AI</h3>
+                    <div class="card-subtitle">Python, TensorFlow | 2023</div>
+                    <div class="card-content">
+                        <p>Built an AI-driven task manager that predicts task completion times with 85% accuracy.</p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Flask</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">AI Chatbot</h3>
+                    <div class="card-subtitle">Python, NLP | 2024</div>
+                    <div class="card-content">
+                        <p>Built a chatbot using NLP for customer support.</p>
+                        <p><a href="https://github.com/janedoe/shahbot">ShahBot</a></p>
+                        <div class="skills-container">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Flask</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <div class="section-header">
+                <h2><i class="fas fa-certificate"></i> Certifications</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title">AWS Certified Developer</h3>
+                    <div class="card-subtitle">AWS | 2023</div>
+                    <div class="card-content">
+                        <p>Certified in developing and deploying applications on AWS.</p>
+                        <p><a href="https://aws.amazon.com/verification">Verify credentials</a></p>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Blockchain Developer</h3>
+                    <div class="card-subtitle">Coursera | 2023</div>
+                    <div class="card-content">
+                        <p>Mastered blockchain technology and smart contract programming.</p>
+                        <p><a href="https://drive.google.com/file/d/1qnpKn5dr74zzKBbE2GLKnigtA2L3CQ/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Full Stack Web Development</h3>
+                    <div class="card-subtitle">Udemy | 2022</div>
+                    <div class="card-content">
+                        <p>Developed end-to-end web applications using the MERN stack.</p>
+                        <p><a href="https://drive.google.com/file/d/1JqsVK6dcwUriRuVDygcyNe-jotkIGlRt/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Machine Learning Professional</h3>
+                    <div class="card-subtitle">Coursera | 2023</div>
+                    <div class="card-content">
+                        <p>Trained machine learning models using TensorFlow for predictive analytics.</p>
+                        <p><a href="https://drive.google.com/file/d/1hduX0rdKK184xlGrcK9MxpiMn8aGfTg4/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Cybersecurity Essentials</h3>
+                    <div class="card-subtitle">Cisco | 2023</div>
+                    <div class="card-content">
+                        <p>Mastered core cybersecurity principles and threat mitigation strategies.</p>
+                        <p><a href="https://drive.google.com/file/d/18D26ZSzGuytPbEoxGLvwYPpKYiQDujTwO/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Data Science with Python</h3>
+                    <div class="card-subtitle">DataCamp | 2023</div>
+                    <div class="card-content">
+                        <p>Performed data analysis using Python libraries like Pandas and NumPy.</p>
+                        <p><a href="https://drive.google.com/file/d/1lClolx3zyK_-DmrtPxJ9eRgZYZU5cc7GL/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Cloud Architect</h3>
+                    <div class="card-subtitle">Google Cloud | 2024</div>
+                    <div class="card-content">
+                        <p>Designed scalable cloud architectures on Google Cloud Platform.</p>
+                        <p><a href="https://drive.google.com/file/d/1kw7Q5nFI37vd0id3G23Oppc5zVTI4B3A/view?usp=sharing">Verify credentials</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <div class="section-header">
+                <h2><i class="fas fa-flask"></i> Research</h2>
+            </div>
+            <div class="section-content">
+                <div class="card">
+                    <h3 class="card-title">The application of blockchain as a distributed ledger and smart contract for property registration</h3>
+                    <div class="card-subtitle">IEEE | 2021</div>
+                    <div class="card-content">
+                        <p>Explored blockchain technology for secure property registration.</p>
+                        <p><a href="https://ieeexplore.ieee.org/abstract/document/9687997">Read research</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">How the Current World is Outdated</h3>
+                    <div class="card-subtitle">ACM | 2023</div>
+                    <div class="card-content">
+                        <p>Analyzed technological obsolescence in modern systems.</p>
+                        <p><a href="https://medium.com/@shah.jash101/shah-world-shah-05a982ead433e">Read article</a></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="card-title">Leveraging the Bitcoin Lightning Network for Tax-Free Fund Transfers in India</h3>
+                    <div class="card-subtitle">IJCRT | June 2024</div>
+                    <div class="card-content">
+                        <p>Investigated the Bitcoin Lightning Network for secure fund transfers in India.</p>
+                        <p><a href="https://ijcrt.org/viewfull.php?&p_id=IJCRT2506859">Read research</a> | <a href="https://drive.google.com/file/d/1L6JQNdEb2ay3DtmNihUEB6ncDLHGC7_O/view?usp=sharing">View Certificate</a> | <a href="https://drive.google.com/file/d/14Ja333z6OihviHHIthIJwfIkuYTxei2pI/view?usp=sharing">Confirmation Letter</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-me">
+            <div class="section-header">
+                <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+            </div>
+            <div class="section-content">
+                <div class="contact-form-container">
+                    <div class="contact-form">
+                        <h3>Contact Form</h3>
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required aria-label="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required aria-label="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required aria-label="Message"></textarea>
+                            </div>
+                            <button type="submit" class="send-btn" aria-label="Send Message">Send</button>
+                        </form>
+                    </div>
+                    <div class="connect-info">
+                        <h3>Connect</h3>
+                        <p>Interested in collaboration? Reach out!</p>
+                        <div class="contact-links">
+                            <a href="mailto:shah.jash101@gmail.com" class="contact-link" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                                <span>shah.jash101@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/jash-shah-744518361" class="contact-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                                <span>linkedin.com/in/jash-shah</span>
+                            </a>
+                            <a href="https://github.com/Jashah3" class="contact-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>github.com/Jashah3</span>
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=WCiv9WwAAAAJ" class="contact-link" aria-label="Google Scholar">
+                                <i class="fas fa-book"></i>
+                                <span>scholar.google.com/citations</span>
+                            </a>
+                            <a href="https://x.com/JashShah0" class="contact-link" aria-label="X">
+                                <i class="fab fa-twitter"></i>
+                                <span>x.com/JashShah0</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <div class="footer-section">
+                <h4>Credentials</h4>
+                <p>CSE Engineering Student at SRM University, always eager to learn more and open to all opportunities.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certificates">Certifications</a></li>
+                    <li><a href="#contact-me">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:shah.jash101@gmail.com">shah.jash101@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> +91 9819731375</p>
+                <p><i Footers fa fa-home"></i> Mumbai, India</p>
+            </div>
+            <div class="footer-section">
+                <h4>Social</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/Jashah3" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jash-shah-744518361" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://scholar.google.com/citations?user=WCiv9WwAAAAJ" class="social-icon" aria-label="Google Scholar"><i class="fas fa-book"></i></a>
+                    <a href="https://x.com/JashShah0" class="social-icon" aria-label="X"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    <p>© 2025 Jash Shah. All rights reserved.</p>
-</footer>
+        <p>© 2025 Jash Shah. All rights reserved.</p>
+    </footer>
 
-<script>
-// Dark Mode Toggle
-function toggleTheme() {
-    const body = document.body;
-    const themeIcon = document.getElementById('themeIcon');
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.removeAttribute('data-theme');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
-    }
-}
+    <script>
+        // Dark Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('themeIcon');
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
 
-// Load Saved Theme
-window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme');
-    const themeIcon = document.getElementById('themeIcon');
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-    }
-    updateHeader(0);
-});
-
-// Scroll to Top
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
-
-// Scroll Progress Bar
-window.addEventListener('scroll', () => {
-    const progressBar = document.getElementById('progressBar');
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = (window.pageYOffset / totalHeight) * 100;
-    progressBar.style.width = progress + '%';
-});
-
-// Scroll-to-Top Button Visibility
-window.addEventListener('scroll', () => {
-    const scrollTopBtn = document.querySelector('.scroll-top');
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
-    }
-});
-
-// Proportional Header Collapse
-let lastScrollY = 0;
-let ticking = false;
-
-function updateHeader(scrollY) {
-    const header = document.querySelector('header');
-    const main = document.querySelector('main');
-    const name = document.querySelector('.header-content h1');
-    const subtitle = document.querySelector('.header-content p');
-    const nav = document.querySelector('nav');
-    const contactInfo = document.querySelector('.contact-info');
-
-    const maxScroll = 200;
-    const progress = Math.min(scrollY / maxScroll, 1);
-
-    const isMobile = window.innerWidth <= 767;
-    const initialHeight = isMobile ? 205.6 : 235.6;
-    const collapsedHeight = isMobile ? 60 : 70;
-    const initialPadding = isMobile ? 1 : 2;
-    const collapsedPadding = isMobile ? 0.25 : 0.5;
-    const initialFontSize = isMobile ? 3 : 3.5;
-    const collapsedFontSize = isMobile ? 1.2 : 1.5;
-    const initialSubtitleFontSize = isMobile ? 1.2 : 1.5;
-    const collapsedSubtitleFontSize = 0;
-    const newOpacity = 1 - progress;
-    const newTranslateY = -20 * progress;
-
-    const newHeight = initialHeight - (initialHeight - collapsedHeight) * progress;
-    const newPadding = initialPadding - (initialPadding - collapsedPadding) * progress;
-    const newFontSize = initialFontSize - (initialFontSize - collapsedFontSize) * progress;
-    const newSubtitleFontSize = initialSubtitleFontSize - (initialSubtitleFontSize - collapsedSubtitleFontSize) * progress;
-
-    header.style.height = `${newHeight}px`;
-    header.style.padding = `${newPadding}rem`;
-    main.style.marginTop = `${newHeight}px`;
-    name.style.fontSize = `${newFontSize}rem`;
-    name.style.opacity = 1;
-    subtitle.style.fontSize = `${newSubtitleFontSize}rem`;
-    subtitle.style.opacity = newOpacity;
-    nav.style.opacity = newOpacity;
-    nav.style.transform = `translateY(${newTranslateY}px)`;
-    contactInfo.style.opacity = newOpacity;
-    contactInfo.style.transform = `translateY(${newTranslateY}px)`;
-
-    if (progress > 0.5) {
-        header.classList.add('collapsed');
-    } else {
-        header.classList.remove('collapsed');
-    }
-}
-
-window.addEventListener('scroll', () => {
-    lastScrollY = window.pageYOffset;
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            updateHeader(lastScrollY);
-            ticking = false;
+        // Load Saved Theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('themeIcon');
+            if (savedTheme === 'dark') {
+                document.body.dataset.theme = 'dark';
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            updateHeader(0);
         });
-        ticking = true;
-    }
-});
 
-window.addEventListener('resize', () => {
-    updateHeader(lastScrollY);
-});
-
-// Smooth scrolling
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
-    });
-});
 
-// Section animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const progressBar = document.getElementById('progressBar');
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = (window.pageYOffset / totalHeight) * 100;
+            progressBar.style.height = progress + '%';
+        });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+        // Scroll-to-Top Button Visibility
+        window.addEventListener('scroll', () => {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.scrollY > 250) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Proportional Header Collapse
+        let lastScrollY = 0;
+        let ticking = false;
+
+        function updateHeader(scrollY) {
+            const header = document.querySelector('header');
+            const main = document.querySelector('main');
+            const name = document.querySelector('.header-content h1');
+            const subtitle = document.querySelector('.header-content p');
+            const nav = document.querySelector('nav');
+            const contactInfo = document.querySelector('.contact-info');
+
+            const maxScroll = 200;
+            const progress = Math.min(scrollY / maxScroll, 1);
+
+            const isMobile = window.innerWidth <= 767;
+            const initialHeight = isMobile ? 245.6 : 280;
+            const collapsedHeight = isMobile ? 60 : 70;
+            const initialPadding = isMobile ? 1 : 2;
+            const collapsedPadding = isMobile ? 0.25 : 0.5;
+            const initialFontSize = isMobile ? 3 : 3.5;
+            const collapsedFontSize = isMobile ? 1.5 : 2;
+            const initialSubtitleFontSize = isMobile ? 1.2 : 1.5;
+            const collapsedSubtitleFontSize = 0;
+            const newOpacity = 1 - progress;
+            const newTranslateY = -20 * progress;
+
+            const newHeight = initialHeight - (initialHeight - collapsedHeight) * progress;
+            const newPadding = initialPadding - (initialPadding - collapsedPadding) * progress;
+            const newFontSize = initialFontSize - (initialFontSize - collapsedFontSize) * progress;
+            const newSubtitleFontSize = initialSubtitleFontSize - (initialSubtitleFontSize - collapsedSubtitleFontSize) * progress;
+
+            header.style.height = `${newHeight}px`;
+            header.style.padding = `${newPadding}rem`;
+            main.style.marginTop = `${newHeight}px`;
+            name.style.fontSize = `${newFontSize}rem`;
+            subtitle.style.fontSize = `${newSubtitleFontSize}rem`;
+            subtitle.style.opacity = newOpacity;
+            nav.style.opacity = newOpacity;
+            nav.style.transform = `translateY(${newTranslateY}px)`;
+            contactInfo.style.opacity = newOpacity;
+            contactInfo.style.transform = `translateY(${newTranslateY}px)`;
+
+            if (progress > 0.5) {
+                header.classList.add('collapsed');
+            } else {
+                header.classList.remove('collapsed');
+                name.style.transform = '';
+                name.style.position = '';
+                name.style.top = '';
+                name.style.left = '';
+                name.style.width = '';
+            }
         }
-    });
-}, observerOptions);
 
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-    observer.observe(section);
-});
+        window.addEventListener('scroll', () => {
+            lastScrollY = window.scrollY;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateHeader(lastScrollY);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
 
-// Form submission
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const notification = document.getElementById('notification');
-        notification.textContent = 'Message sent successfully!';
-        notification.classList.add('show');
-        setTimeout(() => {
-            notification.classList.remove('show');
-        }, 3000);
-    });
-}
-</script>
+        window.addEventListener('resize', () => {
+            updateHeader(lastScrollY);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Section animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const notification = document.getElementById('notification');
+                notification.textContent = 'Message sent successfully!';
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+        }
+    </script>
 </body>
 </html>
